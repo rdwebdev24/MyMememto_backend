@@ -32,7 +32,9 @@ app.delete('/delete_img/:id',(req,res)=>{
 })
 app.post('/delete_selected',(req,res)=>{
     const idxArr = req.body.data;
-    deleteArr = [...deleteArr,idxArr];
+    deleteArr = [
+        ...deleteArr,...idxArr];
+    console.log(deleteArr,"oh yeahhhh");
     for(let i = 0; i < ImageArr.length; i++){
         for(let j = 0; j<idxArr.length; j++){
             if(ImageArr[i]==idxArr[j]) ImageArr.splice(i,1);
